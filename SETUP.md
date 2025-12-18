@@ -1,132 +1,132 @@
-# 🚀 Freelance Marketplace - Kurulum Rehberi
+# 🚀 BK Marketplace - Setup Guide
 
-## 📋 Gereksinimler
+## 📋 Requirements
 
-- **Node.js** (v14 veya üzeri) - [nodejs.org](https://nodejs.org)
-- **npm** (Node.js ile birlikte gelir)
+- **Node.js** (v14 or higher) - [nodejs.org](https://nodejs.org)
+- **npm** (comes with Node.js)
 
-## 🔧 Kurulum Adımları
+## 🔧 Installation Steps
 
-### 1️⃣ Backend Kurulumu
+### 1️⃣ Backend Setup
 
 ```bash
-# Backend klasörüne git
+# Navigate to backend folder
 cd backend
 
-# Bağımlılıkları yükle
+# Install dependencies
 npm install
 
-# Sunucuyu başlat
+# Start the server
 node server.js
 ```
 
-Backend **http://localhost:4000** adresinde çalışacak.
+Backend runs on http://localhost:4000
 
-### 2️⃣ Frontend Kurulumu
+### 2️⃣ Frontend Setup
 
-**YENİ BİR TERMINAL AÇIN** ve şu komutları çalıştırın:
+**OPEN A NEW TERMINAL** and run:
 
 ```bash
-# Frontend klasörüne git
+# Navigate to frontend folder
 cd frontend
 
-# Bağımlılıkları yükle
+# Install dependencies
 npm install
 
-# Uygulamayı başlat
+# Start the application
 npm start
 ```
 
-Frontend **http://localhost:3001** adresinde çalışacak ve otomatik olarak tarayıcıda açılacak.
+Frontend runs on http://localhost:3002 and will open in your browser automatically.
 
-## 🎯 Test Hesapları
+## 🎯 Test Accounts
 
-Proje otomatik olarak demo veriler ve test hesapları oluşturur:
+The project automatically creates demo data and test accounts:
 
-### 👤 Client (İş Veren) Hesapları
-- **Email:** client1@demo.com | **Şifre:** demo123
-- **Email:** client2@demo.com | **Şifre:** demo123
+### 👤 Client Accounts
+- **Email:** client1@demo.com | **Password:** demo123
+- **Email:** client2@demo.com | **Password:** demo123
 
-### 💼 Freelancer Hesapları
-- **Email:** freelancer1@demo.com | **Şifre:** demo123
-- **Email:** freelancer2@demo.com | **Şifre:** demo123
-- **Email:** freelancer3@demo.com | **Şifre:** demo123
+### 💼 Freelancer Accounts
+- **Email:** freelancer1@demo.com | **Password:** demo123
+- **Email:** freelancer2@demo.com | **Password:** demo123
+- **Email:** freelancer3@demo.com | **Password:** demo123
 
-## 🌟 Özellikler
+## 🌟 Features
 
-### ✅ Tamamlanan Özellikler
+### ✅ Implemented Features
 
-1. **Kullanıcı Yönetimi**
-   - JWT kimlik doğrulama
-   - Bcrypt şifre hashleme
-   - Client ve Freelancer rolleri
+1. **User Management**
+   - JWT authentication
+   - Bcrypt password hashing
+   - Client and Freelancer roles
 
-2. **Proje Yönetimi**
-   - Proje oluşturma ve listeleme
-   - Dosya yükleme (Multer)
-   - Sayfalama (9 proje/sayfa)
-   - Proje detayları
-   - Durum yönetimi (Open, In Progress, Completed, Cancelled)
+2. **Project Management**
+   - Create and list projects
+   - File uploads (Multer)
+   - Pagination (9 projects/page)
+   - Project details
+   - Status management (Open, In Progress, Completed, Cancelled)
 
-3. **Teklif Sistemi**
-   - Teklif gönderme
-   - Teklif kabul/red
-   - Teklif geçmişi
-   - Otomatik durum güncellemeleri
+3. **Bidding System**
+   - Submit proposals
+   - Accept/reject proposals
+   - Proposal history
+   - Automatic status updates
 
-4. **İnceleme & Değerlendirme**
-   - 5 yıldız değerlendirme sistemi
-   - Yorum ekleme
-   - Ortalama puan hesaplama
-   - Profilde görüntüleme
+4. **Reviews & Ratings**
+   - 5-star rating system
+   - Add comments
+   - Calculate average rating
+   - Display in profile
 
-5. **Gerçek Zamanlı Mesajlaşma**
-   - Socket.IO ile anlık mesajlaşma
-   - Online kullanıcı takibi
-   - Mesaj geçmişi
+5. **Real-time Messaging**
+   - Instant messaging with Socket.IO
+   - Online user tracking
+   - Message history
 
 6. **Dashboard & Analytics**
-   - Chart.js ile görselleştirme
-   - Client dashboard (proje istatistikleri, teklif analizi)
-   - Freelancer dashboard (kazanç, başarı oranı, performans)
-   - Aylık trend grafikleri
+   - Data visualization with Chart.js
+   - Client dashboard (project stats, bid analysis)
+   - Freelancer dashboard (earnings, success rate, performance)
+   - Monthly trend graphs
 
 7. **Modern UI/UX**
-   - Gradient tasarımlar
-   - Glassmorphism efektleri
-   - Responsive tasarım
-   - React Hot Toast bildirimleri
+   - Gradient designs
+   - Glassmorphism effects
+   - Responsive design
+   - React Hot Toast notifications
 
-## 📁 Proje Yapısı
+## 📁 Project Structure
 
 ```
 freelance-marketplace/
 ├── backend/
-│   ├── server.js           # Ana sunucu dosyası
-│   ├── package.json        # Backend bağımlılıkları
-│   ├── database.db         # SQLite veritabanı (otomatik oluşur)
-│   ├── uploads/            # Yüklenen dosyalar (otomatik oluşur)
-│   └── .env               # Ortam değişkenleri (opsiyonel)
+│   ├── server.js           # Main server file
+│   ├── package.json        # Backend dependencies
+│   ├── database.db         # SQLite database (auto-created)
+│   ├── uploads/            # Uploaded files (auto-created)
+│   └── .env               # Environment variables (optional)
 │
 └── frontend/
     ├── src/
-    │   ├── components/    # React bileşenleri
-    │   ├── pages/         # Sayfa bileşenleri
+    │   ├── components/    # React components
+    │   ├── pages/         # Page components
     │   ├── context/       # Context API
-    │   └── utils/         # Yardımcı fonksiyonlar
-    ├── package.json       # Frontend bağımlılıkları
-    └── public/            # Statik dosyalar
+    │   └── utils/         # Utility functions
+    ├── package.json       # Frontend dependencies
+    └── public/            # Static files
 ```
 
-## 🛠️ Kullanılan Teknolojiler
+## 🛠️ Technologies Used
 
 ### Backend
 - Node.js & Express.js
-- SQLite3 (Veritabanı)
-- JWT (Kimlik doğrulama)
-- Bcrypt (Şifre hashleme)
-- Socket.IO (Gerçek zamanlı iletişim)
-- Multer (Dosya yükleme)
+- SQLite3 (Database)
+- JWT (Authentication)
+- Bcrypt (Password hashing)
+- Socket.IO (Real-time communication)
+- Multer (File upload)
 
 ### Frontend
 - React 19.2.1
@@ -137,41 +137,41 @@ freelance-marketplace/
 - React Hot Toast
 - Tailwind CSS 3.4.1
 
-## ⚠️ Önemli Notlar
+## ⚠️ Important Notes
 
-1. **Backend'i önce başlatın**, sonra frontend'i başlatın.
-2. İlk çalıştırmada veritabanı otomatik olarak oluşturulur ve demo veriler eklenir.
-3. Eğer veritabanını sıfırlamak isterseniz, `backend/database.db` dosyasını silin ve sunucuyu yeniden başlatın.
-4. `uploads/` klasörü ilk dosya yüklendiğinde otomatik oluşur.
+1. **Start the backend first**, then start the frontend.
+2. On first run, the database is automatically created and demo data is added.
+3. If you want to reset the database, delete `backend/database.db` and restart the server.
+4. The `uploads/` folder is created automatically when the first file is uploaded.
 
-## 🐛 Sorun Giderme
+## 🐛 Troubleshooting
 
-### Port Zaten Kullanımda
-Eğer "Port already in use" hatası alırsanız:
+### Port Already in Use
+If you get "Port already in use" error:
 
-**Windows için:**
+**For Windows:**
 ```bash
-# Port 4000'i kullanan process'i bul ve kapat
+# Find and close process using port 4000
 Get-Process -Id (Get-NetTCPConnection -LocalPort 4000).OwningProcess | Stop-Process -Force
 
-# Port 3001'i kullanan process'i bul ve kapat
-Get-Process -Id (Get-NetTCPConnection -LocalPort 3001).OwningProcess | Stop-Process -Force
+# Find and close process using port 3002
+Get-Process -Id (Get-NetTCPConnection -LocalPort 3002).OwningProcess | Stop-Process -Force
 ```
 
-### npm install Hataları
-Eğer `npm install` sırasında hata alırsanız:
+### npm install Errors
+If you get errors during `npm install`:
 ```bash
-# npm cache'i temizle
+# Clean npm cache
 npm cache clean --force
 
-# Tekrar dene
+# Try again
 npm install
 ```
 
-## 📞 İletişim
+## 📞 Contact
 
-Herhangi bir sorun yaşarsanız veya sorularınız varsa benimle iletişime geçebilirsiniz.
+If you encounter any issues or have questions, feel free to reach out.
 
 ---
 
-**İyi Kodlamalar! 🚀**
+**Happy Coding! 🚀**

@@ -1,57 +1,57 @@
-# 🚀 FreelanceHub Backend API Documentation
+# 🚀 BK Marketplace - Backend API Documentation
 
-## 📋 Genel Bakış
-Node.js ve Express ile geliştirilmiş RESTful API. SQLite veritabanı kullanır, JWT authentication içerir.
+## 📋 Overview
+RESTful API developed with Node.js and Express. Uses SQLite database with JWT authentication.
 
-## 🗂️ Proje Yapısı
+## 🗂️ Project Structure
 ```
 backend/
-├── server.js              # Ana backend dosyası (tüm API endpoints)
+├── server.js              # Main backend file (all API endpoints)
 ├── middleware/
 │   ├── auth.js           # JWT authentication middleware
 │   └── upload.js         # Multer file upload middleware
-├── uploads/              # Yüklenen dosyalar (profil resimleri)
-├── database.db           # SQLite veritabanı
+├── uploads/              # Uploaded files (profile pictures)
+├── database.db           # SQLite database
 ├── .env                  # Environment variables
 └── package.json          # Dependencies
 ```
 
-## 🔧 Kurulum ve Çalıştırma
+## 🔧 Installation and Running
 
-### 1. Gerekli Paketleri Yükle
+### 1. Install Required Packages
 ```bash
 cd backend
 npm install
 ```
 
-### 2. Environment Variables (.env dosyası)
+### 2. Environment Variables (.env file)
 ```
 PORT=4000
 JWT_SECRET=your-secret-key-here-change-in-production
 JWT_EXPIRE=7d
 ```
 
-### 3. Server'ı Başlat
+### 3. Start the Server
 ```bash
 node server.js
 ```
 
-Server http://localhost:4000 adresinde çalışacak.
+Server runs on http://localhost:4000
 
-## 📦 Kullanılan Teknolojiler
+## 📦 Technologies Used
 
 - **express** (5.2.1) - Web framework
-- **sqlite3** - Veritabanı
-- **bcryptjs** - Şifre hashleme
+- **sqlite3** - Database
+- **bcryptjs** - Password hashing
 - **jsonwebtoken** - JWT authentication
 - **dotenv** - Environment variables
 - **multer** - File upload
 - **socket.io** - Real-time messaging
 - **cors** - Cross-origin resource sharing
 
-## 🗄️ Veritabanı Şeması
+## 🗄️ Database Schema
 
-### Users Tablosu
+### Users Table
 ```sql
 CREATE TABLE users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -68,7 +68,7 @@ CREATE TABLE users (
 )
 ```
 
-### Projects Tablosu
+### Projects Table
 ```sql
 CREATE TABLE projects (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -86,7 +86,7 @@ CREATE TABLE projects (
 )
 ```
 
-### Bids Tablosu
+### Bids Table
 ```sql
 CREATE TABLE bids (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -102,7 +102,7 @@ CREATE TABLE bids (
 )
 ```
 
-### Reviews Tablosu
+### Reviews Table
 ```sql
 CREATE TABLE reviews (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -115,7 +115,7 @@ CREATE TABLE reviews (
 )
 ```
 
-### Messages Tablosu
+### Messages Table
 ```sql
 CREATE TABLE messages (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -129,13 +129,13 @@ CREATE TABLE messages (
 
 ## 🔐 Authentication
 
-### JWT Token Sistemi
-- Token **7 gün** geçerli
+### JWT Token System
+- Token valid for **7 days**
 - Header: `Authorization: Bearer <token>`
 - Token payload: `{ id, email, user_type }`
 
 ### Protected Routes
-`authMiddleware` ile korunan route'lar:
+Routes protected with `authMiddleware`:
 - POST /api/projects
 - PUT /api/projects/:id
 - DELETE /api/projects/:id
@@ -150,7 +150,7 @@ CREATE TABLE messages (
 ### 🔑 Authentication Routes
 
 #### POST /api/auth/register
-Yeni kullanıcı kaydı
+Register new user
 ```json
 Request:
 {
@@ -172,7 +172,7 @@ Response:
 ```
 
 #### POST /api/auth/login
-Kullanıcı girişi
+User login
 ```json
 Request:
 {
@@ -190,7 +190,7 @@ Response:
 ### 👤 User Routes
 
 #### GET /api/users/:id
-Kullanıcı detayları
+Get user details
 ```json
 Response:
 {
@@ -207,7 +207,7 @@ Response:
 ```
 
 #### GET /api/freelancers?page=1&limit=12
-Freelancer listesi (pagination)
+Get freelancer list (pagination)
 ```json
 Response:
 {
@@ -222,15 +222,15 @@ Response:
 ```
 
 #### PUT /api/users/:id (Protected)
-Profil güncelleme
+Update profile
 
 #### POST /api/users/:id/upload (Protected)
-Profil resmi yükleme (Multer)
+Upload profile picture (Multer)
 
 ### 📝 Project Routes
 
 #### GET /api/projects?page=1&limit=9&search=&category=
-Proje listesi (pagination, search, filter)
+Get project list (pagination, search, filter)
 ```json
 Response:
 {
@@ -245,10 +245,10 @@ Response:
 ```
 
 #### GET /api/projects/:id
-Proje detayı
+Get project details
 
 #### POST /api/projects (Protected)
-Yeni proje oluştur
+Create new project
 ```json
 Request:
 {
@@ -261,15 +261,15 @@ Request:
 ```
 
 #### PUT /api/projects/:id (Protected)
-Proje güncelle
+Update project
 
 #### DELETE /api/projects/:id (Protected)
-Proje sil
+Delete project
 
 ### 💼 Bid Routes
 
 #### POST /api/bids (Protected)
-Teklif ver
+Submit proposal
 ```json
 Request:
 {
@@ -282,25 +282,25 @@ Request:
 ```
 
 #### GET /api/projects/:id/bids
-Projeye gelen teklifler
+Get project proposals
 
 #### GET /api/users/:id/bids
-Freelancer'ın verdiği teklifler
+Get freelancer's proposals
 
 #### PUT /api/bids/:id (Protected)
-Teklif kabul/red
+Accept/reject proposal
 ```json
 Request:
 {
   "status": "accepted" | "rejected"
 }
 ```
-**Not:** Teklif kabul edildiğinde proje otomatik olarak "in_progress" statüsüne geçer.
+**Note:** When a proposal is accepted, the project automatically moves to "in_progress" status.
 
 ### ⭐ Review Routes
 
 #### POST /api/reviews (Protected)
-Değerlendirme yap
+Submit review
 ```json
 Request:
 {
@@ -312,10 +312,10 @@ Request:
 ```
 
 #### GET /api/reviews/:userId
-Kullanıcının aldığı değerlendirmeler
+Get user's reviews
 
 #### GET /api/reviews/:userId/stats
-Değerlendirme istatistikleri
+Get review statistics
 ```json
 Response:
 {
@@ -332,7 +332,7 @@ Response:
 ### 💬 Message Routes
 
 #### POST /api/messages (Protected)
-Mesaj gönder
+Send message
 ```json
 Request:
 {
@@ -342,13 +342,13 @@ Request:
 ```
 
 #### GET /api/messages/conversations (Protected)
-Sohbet listesi
+Get conversation list
 
 #### GET /api/messages/:userId (Protected)
-Belirli kullanıcı ile mesajlaşma
+Get messages with specific user
 
 #### PUT /api/messages/:id/read (Protected)
-Mesajı okundu olarak işaretle
+Mark message as read
 
 ## 🔌 Socket.IO Events
 
@@ -357,44 +357,44 @@ Mesajı okundu olarak işaretle
 // Connection
 socket.on('connection', (socket) => {
   socket.on('user_connected', (userId) => {
-    // Kullanıcı online
+    // User is online
   });
 
   socket.on('send_message', (data) => {
-    // Mesaj gönder
+    // Send message
     io.to(receiverSocketId).emit('receive_message', data);
   });
 
   socket.on('disconnect', () => {
-    // Kullanıcı offline
+    // User is offline
   });
 });
 ```
 
 ## 📊 Demo Data
 
-Server ilk çalıştırıldığında otomatik demo data eklenir:
+Demo data is automatically added on first server run:
 
-### Demo Kullanıcılar
+### Demo Users
 - **Client:** client1@demo.com / 123456
 - **Freelancer 1:** freelancer1@demo.com / 123456 (Sarah Designer)
 - **Freelancer 2:** freelancer2@demo.com / 123456 (Mike Developer)
 - **Freelancer 3:** freelancer3@demo.com / 123456 (Emma Writer)
 
-### 6 Örnek Proje
-### 7 Örnek Bid
+### 6 Sample Projects
+### 7 Sample Bids
 
 ## 🛡️ Security Features
 
 1. **Password Hashing:** bcrypt (10 salt rounds)
-2. **JWT Authentication:** 7 günlük token
+2. **JWT Authentication:** 7-day token validity
 3. **Protected Routes:** authMiddleware
 4. **File Upload Validation:** 5MB limit, image/document only
 5. **SQL Injection Protection:** Prepared statements
 
-## 🧪 API Test Örnekleri
+## 🧪 API Testing Examples
 
-### Postman / Thunder Client ile Test
+### Test with Postman / Thunder Client
 
 1. **Register**
 ```
@@ -425,21 +425,21 @@ Headers:
 Authorization: Bearer <your-jwt-token>
 ```
 
-## 📝 Notlar
+## 📝 Notes
 
-- SQLite database.db dosyası silerse, server otomatik yeni database ve demo data oluşturur
-- Tüm tarih/saat değerleri CURRENT_TIMESTAMP (UTC) kullanır
-- File upload'lar /uploads klasörüne kaydedilir
-- Socket.IO port 4000'de HTTP server ile birlikte çalışır
+- If the SQLite database.db file is deleted, the server automatically creates a new database with demo data
+- All timestamp values use CURRENT_TIMESTAMP (UTC)
+- File uploads are saved to /uploads folder
+- Socket.IO runs on port 4000 with HTTP server
 
 ## 🐛 Debugging
 
-### Server logları kontrol et:
+### Check server logs:
 ```bash
 node server.js
 ```
 
-### Database'i kontrol et:
+### Check database:
 ```bash
 sqlite3 database.db
 .tables
@@ -447,6 +447,6 @@ sqlite3 database.db
 SELECT * FROM users;
 ```
 
-## 📞 Destek
+## 📞 Support
 
-Sorular için: backend kodu tamamen `server.js` dosyasında, inceleyebilirsiniz.
+For questions: all backend code is in the `server.js` file, you can review it there.

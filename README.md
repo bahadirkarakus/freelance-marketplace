@@ -1,70 +1,79 @@
-# Freelance Talent Marketplace
+# BK Marketplace - Freelance Services Platform
 
-Tam özellikli bir freelance marketplace platformu. Client'lar proje oluşturabilir, freelancer'lar teklif verebilir.
+A full-featured freelance marketplace platform where clients can create projects and freelancers can submit proposals. Built with React and Node.js.
 
-## 🚀 Teknolojiler
+## 🚀 Technology Stack
 
 ### Backend
 - **Node.js + Express** - REST API
 - **SQLite3** - Database
-- **CORS** - Cross-origin requests
+- **Socket.IO** - Real-time messaging
+- **JWT** - Authentication
+- **Multer** - File uploads
 
 ### Frontend
 - **React 19** - UI framework
-- **React Router** - Sayfa yönlendirme
+- **React Router** - Page routing
 - **Tailwind CSS** - Styling
 - **Axios** - HTTP client
 - **Context API** - State management
 
-## 📦 Kurulum
+## 📦 Installation
 
-### Backend Kurulum
+### Backend Setup
 ```bash
 cd backend
 npm install
-node server.js
+npm start
 ```
-Backend http://localhost:4000 üzerinde çalışacak.
+Backend runs on http://localhost:4000
 
-### Frontend Kurulum
+### Frontend Setup
 ```bash
 cd frontend
 npm install
 npm start
 ```
-Frontend http://localhost:3000 üzerinde çalışacak.
+Frontend runs on http://localhost:3002 (or 3001 if available)
 
-## ✨ Özellikler
+## ✨ Features
 
-### Kullanıcı Özellikleri
-- ✅ Kayıt olma (Client veya Freelancer olarak)
-- ✅ Giriş yapma
-- ✅ Profil düzenleme
-- ✅ Dashboard
+### User Features
+- ✅ Registration (Client or Freelancer)
+- ✅ Login with JWT authentication
+- ✅ Profile editing and management
+- ✅ Dashboard with statistics
+- ✅ Profile picture upload
+- ✅ Real-time messaging
 
-### Client Özellikleri
-- ✅ Proje oluşturma
-- ✅ Proje yönetimi
-- ✅ Teklifleri görüntüleme
-- ✅ Teklif kabul etme
-- ✅ Freelancer atama
+### Client Features
+- ✅ Create projects
+- ✅ Manage projects
+- ✅ View proposals
+- ✅ Accept/reject proposals
+- ✅ Assign freelancers
+- ✅ Leave reviews
 
-### Freelancer Özellikleri
-- ✅ Projeleri görüntüleme
-- ✅ Projelere teklif verme
-- ✅ Kendi tekliflerini takip etme
-- ✅ Beceri ve ücret bilgisi ekleme
-- ✅ Rating sistemi
+### Freelancer Features
+- ✅ Browse projects with filters
+- ✅ Submit proposals
+- ✅ Track proposals
+- ✅ Add skills and hourly rate
+- ✅ View ratings and reviews
+- ✅ Communicate with clients
 
-### Genel Özellikler
-- ✅ Proje listeleme ve filtreleme
-- ✅ Freelancer profilleri
-- ✅ Kategori bazlı arama
-- ✅ Durum takibi (open, in_progress, completed)
-- ✅ Responsive tasarım
-- ✅ Modern UI/UX
+### General Features
+- ✅ Project listing with pagination
+- ✅ Advanced filtering (category, budget, duration)
+- ✅ Freelancer directory
+- ✅ Status tracking (open, in_progress, completed)
+- ✅ 5-star rating system
+- ✅ Real-time messaging
+- ✅ Responsive design
+- ✅ Dark mode support
+- ✅ Multi-language support (EN/TR)
 
-## 📁 Database Şeması
+## 📁 Database Schema
 
 ### Users
 - id, email, password, name, user_type (client/freelancer)
@@ -86,57 +95,67 @@ Frontend http://localhost:3000 üzerinde çalışacak.
 
 ## 🎯 API Endpoints
 
-### Auth
-- POST `/api/auth/register` - Kayıt
-- POST `/api/auth/login` - Giriş
+### Authentication
+- POST `/api/auth/register` - User registration
+- POST `/api/auth/login` - User login
 
 ### Users
-- GET `/api/freelancers` - Tüm freelancer'lar
-- GET `/api/users/:id` - Kullanıcı profili
-- PUT `/api/users/:id` - Profil güncelleme
-- GET `/api/users/:id/projects` - Kullanıcının projeleri
-- GET `/api/users/:id/bids` - Freelancer'ın teklifleri
-- GET `/api/users/:id/reviews` - Kullanıcı yorumları
+- GET `/api/freelancers` - Get all freelancers
+- GET `/api/users/:id` - Get user profile
+- PUT `/api/users/:id` - Update profile
+- GET `/api/users/:id/projects` - Get user projects
+- GET `/api/users/:id/bids` - Get user bids
+- GET `/api/users/:id/reviews` - Get user reviews
 
 ### Projects
-- POST `/api/projects` - Proje oluştur
-- GET `/api/projects` - Tüm projeler (filtreleme: status, category)
-- GET `/api/projects/:id` - Proje detay
-- PUT `/api/projects/:id` - Proje güncelle
-- DELETE `/api/projects/:id` - Proje sil
-- GET `/api/projects/:id/bids` - Proje teklifleri
+- POST `/api/projects` - Create project
+- GET `/api/projects` - Get all projects (with filters)
+- GET `/api/projects/:id` - Get project details
+- PUT `/api/projects/:id` - Update project
+- DELETE `/api/projects/:id` - Delete project
+- GET `/api/projects/:id/bids` - Get project proposals
 
 ### Bids
-- POST `/api/bids` - Teklif ver
-- PUT `/api/bids/:id` - Teklif durumu güncelle (kabul/red)
+- POST `/api/bids` - Submit proposal
+- PUT `/api/bids/:id` - Update proposal status
 
 ### Reviews
-- POST `/api/reviews` - Yorum yaz
+- POST `/api/reviews` - Submit review
 
 ## 🔐 Authentication
 
-LocalStorage kullanılarak basit authentication yapılmıştır. Production'da JWT kullanılması önerilir.
+JWT-based authentication with 7-day token expiration. Passwords are hashed with bcrypt.
 
-## 🎨 Sayfalar
+## 🎨 Pages
 
-1. **Home** - Ana sayfa ve hero section
-2. **Login/Register** - Kullanıcı girişi ve kaydı
-3. **Projects** - Proje listeleme ve filtreleme
-4. **Project Detail** - Proje detayları ve teklif verme
-5. **Create Project** - Yeni proje oluşturma
-6. **Freelancers** - Freelancer listesi
-7. **Dashboard** - Kullanıcı dashboard'u
-8. **Profile** - Profil düzenleme
+1. **Home** - Landing page with hero section, how it works, testimonials, and FAQ
+2. **Login/Register** - User authentication
+3. **Projects** - Browse and filter projects
+4. **Project Detail** - View project details and submit proposals
+5. **Create Project** - Create new project (clients only)
+6. **Freelancers** - Browse freelancer directory
+7. **Dashboard** - User dashboard with statistics
+8. **Profile** - Edit user profile
+9. **Messages** - Real-time messaging
 
-## 🚀 Başlarken
+## 🚀 Getting Started
 
-1. Backend'i başlat: `cd backend && node server.js`
-2. Frontend'i başlat: `cd frontend && npm start`
-3. http://localhost:3000 adresini ziyaret et
-4. Kayıt ol ve kullanmaya başla!
+1. Start backend: `cd backend && node server.js`
+2. Start frontend: `cd frontend && npm start`
+3. Visit http://localhost:3002
+4. Register and start using!
 
-## 📝 Notlar
+## 📝 Notes
 
-- Database otomatik olarak oluşturulur (SQLite)
-- İlk kullanımda kullanıcı ve proje oluşturmanız gerekir
-- Client hesabıyla proje oluşturabilir, freelancer hesabıyla teklif verebilirsiniz
+- Database is automatically created on first run (SQLite)
+- Sample projects are seeded into the database
+- Use a Client account to create projects
+- Use a Freelancer account to submit proposals
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is open source and available under the MIT License.
