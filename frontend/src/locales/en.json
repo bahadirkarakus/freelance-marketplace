@@ -1,0 +1,307 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "filter": "Filter",
+    "clear": "Clear",
+    "submit": "Submit",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "logout": "Logout"
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "freelancers": "Freelancers",
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "messages": "Messages",
+    "myBids": "My Bids",
+    "login": "Login",
+    "register": "Register"
+  },
+  "auth": {
+    "loginTitle": "Login",
+    "registerTitle": "Register",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "userType": "User Type",
+    "client": "Client",
+    "freelancer": "Freelancer",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don't have an account?",
+    "loginHere": "Login here",
+    "registerHere": "Register here",
+    "loginSuccess": "Login successful!",
+    "registerSuccess": "Registration successful!"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "clientDashboard": "Client Dashboard",
+    "freelancerDashboard": "Freelancer Dashboard",
+    "statistics": "Statistics",
+    "totalProjects": "Total Projects",
+    "activeProjects": "Active Projects",
+    "completedProjects": "Completed Projects",
+    "totalBids": "Total Bids",
+    "activeBids": "Active Bids",
+    "acceptedBids": "Accepted Bids",
+    "totalEarnings": "Total Earnings",
+    "averageRating": "Average Rating",
+    "projectsDistribution": "Projects Distribution",
+    "open": "Open",
+    "inProgress": "In Progress",
+    "completed": "Completed",
+    "projectsOverTime": "Projects Over Time",
+    "bidsOverTime": "Bids Over Time",
+    "earningsByCategory": "Earnings by Category",
+    "noData": "No data yet"
+  },
+  "projects": {
+    "title": "Projects",
+    "browseProjects": "Browse Projects",
+    "addProject": "Add New Project",
+    "projectTitle": "Project Title",
+    "description": "Description",
+    "category": "Category",
+    "budget": "Budget",
+    "deadline": "Deadline",
+    "status": "Status",
+    "postedBy": "Posted By",
+    "bids": "Bid",
+    "viewDetails": "View Details",
+    "placeBid": "Place Bid",
+    "noBids": "No bids yet",
+    "allCategories": "All Categories",
+    "allStatuses": "All Statuses",
+    "minBudget": "Min Budget",
+    "maxBudget": "Max Budget",
+    "sortBy": "Sort By",
+    "newest": "Newest",
+    "budgetLowToHigh": "Budget: Low to High",
+    "budgetHighToLow": "Budget: High to Low",
+    "activeFilters": "Active Filters",
+    "clearFilters": "Clear Filters",
+    "noProjects": "No projects found",
+    "loadMore": "Load More"
+  },
+  "freelancers": {
+    "title": "Freelancers",
+    "browseFreelancers": "Browse Freelancers",
+    "specializing": "Freelancers specializing in:",
+    "hourlyRate": "Hourly Rate",
+    "rating": "Rating",
+    "skills": "Skills",
+    "viewProfile": "View Profile",
+    "minRate": "Min Rate",
+    "maxRate": "Max Rate",
+    "minRating": "Min Rating",
+    "allRatings": "All Ratings",
+    "rateAsc": "Rate: Low to High",
+    "rateDesc": "Rate: High to Low",
+    "ratingDesc": "Rating: High to Low",
+    "noFreelancers": "No freelancers found"
+  },
+  "profile": {
+    "title": "Profile",
+    "editProfile": "Edit Profile",
+    "updateProfile": "Update Profile",
+    "name": "Name",
+    "email": "Email",
+    "bio": "Bio",
+    "skills": "Skills",
+    "hourlyRate": "Hourly Rate",
+    "profileUpdated": "Profile updated!",
+    "myProjects": "My Projects",
+    "myBids": "My Bids",
+    "reviews": "Reviews",
+    "noReviews": "No reviews yet"
+  },
+  "bids": {
+    "title": "My Bids",
+    "amount": "Amount",
+    "deliveryTime": "Delivery Time",
+    "days": "days",
+    "proposal": "Proposal",
+    "status": "Status",
+    "pending": "Pending",
+    "accepted": "Accepted",
+    "rejected": "Rejected",
+    "project": "Project",
+    "noBids": "You haven't placed any bids yet"
+  },
+  "messages": {
+    "title": "Messages",
+    "typeMessage": "Type a message...",
+    "send": "Send",
+    "noMessages": "No messages yet",
+    "startConversation": "Start a conversation"
+  },
+  "categories": {
+    "web_development": "Web Development",
+    "mobile_development": "Mobile Development",
+    "design": "Design",
+    "writing": "Writing",
+    "marketing": "Marketing",
+    "data_science": "Data Science",
+    "other": "Other",
+    "detail": {
+      "aiServices": {
+        "title": "AI Services",
+        "subtitle": "Transform your business with AI"
+      },
+      "development": {
+        "title": "Development & IT",
+        "subtitle": "Professional software solutions"
+      },
+      "design": {
+        "title": "Design & Creative",
+        "subtitle": "Bring your brand to life"
+      },
+      "marketing": {
+        "title": "Sales & Marketing",
+        "subtitle": "Grow your business"
+      },
+      "writing": {
+        "title": "Writing & Translation",
+        "subtitle": "Professional content services"
+      },
+      "admin": {
+        "title": "Admin & Support",
+        "subtitle": "Simplify your workflow"
+      },
+      "howItWorks": "How it works",
+      "popular": "Most Popular Services",
+      "explore": "Explore",
+      "cta": {
+        "title": "Ready to get started?",
+        "subtitle": "Access thousands of talented professionals",
+        "browseProjects": "Browse Projects",
+        "getStarted": "Get Started"
+      }
+    }
+  },
+  "reviews": {
+    "title": "Reviews",
+    "writeReview": "Write a Review",
+    "yourRating": "Your Rating",
+    "yourComment": "Your Comment",
+    "selectRating": "Please select a rating",
+    "writeComment": "Please write a comment",
+    "commentPlaceholder": "Share your experience...",
+    "characters": "characters",
+    "submitReview": "Submit Review",
+    "reviewAdded": "Review added!",
+    "overallRating": "Overall Rating",
+    "reviews": "reviews",
+    "allReviews": "All Reviews",
+    "noReviews": "No reviews yet",
+    "project": "Project"
+  },
+  "home": {
+    "hero": {
+      "title": "Find Perfect Freelance Talent",
+      "subtitle": "Connect with skilled professionals or find your next project",
+      "browseProjects": "Browse Projects",
+      "findFreelancers": "Find Freelancers"
+    },
+    "whyChoose": {
+      "title": "Make it all happen with freelancers",
+      "talent": {
+        "title": "Access a pool of top talent across 700 categories",
+        "description": "Find the perfect expert for any job"
+      },
+      "matching": {
+        "title": "Enjoy a simple, easy-to-use matching experience",
+        "description": "Get matched with the right talent quickly"
+      },
+      "quality": {
+        "title": "Get quality work done quickly and within budget",
+        "description": "Deliver projects on time and on budget"
+      },
+      "payment": {
+        "title": "Only pay when you're happy",
+        "description": "Secure payment protection"
+      },
+      "joinButton": "Join now"
+    },
+    "categories": {
+      "title": "Explore millions of pros",
+      "subtitle": "Find the best freelancers for every service you need",
+      "aiServices": "AI Services",
+      "development": "Development & IT",
+      "design": "Design & Creative",
+      "marketing": "Sales & Marketing",
+      "writing": "Writing & Translation",
+      "admin": "Admin & Support",
+      "finance": "Finance & Accounting",
+      "legal": "Legal",
+      "hr": "HR & Training",
+      "engineering": "Engineering & Architecture"
+    },
+    "features": {
+      "title": "Why Choose Us?",
+      "quality": {
+        "title": "Quality Talent",
+        "description": "Access to verified and skilled freelancers"
+      },
+      "diverse": {
+        "title": "Diverse Projects",
+        "description": "Find projects that match your expertise"
+      },
+      "fast": {
+        "title": "Fast & Easy",
+        "description": "Quick project posting and bidding process"
+      }
+    },
+    "guides": {
+      "title": "Guides to help you grow",
+      "seeMore": "See more guides",
+      "freelancer": {
+        "icon": "💼",
+        "title": "Start a side business",
+        "description": "Earn extra income using your skills"
+      },
+      "client": {
+        "icon": "🛒",
+        "title": "Discover business ideas",
+        "description": "Find the best freelancers for your projects"
+      },
+      "remote": {
+        "icon": "🏢",
+        "title": "Start working remotely",
+        "description": "Work from home and do online business"
+      }
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "forHiring": "For hiring",
+      "forFindingWork": "For finding work",
+      "step1": {
+        "title": "Browse or post projects",
+        "description": "Find the perfect freelancer or post your project to get started"
+      },
+      "step2": {
+        "title": "Get proposals and hire",
+        "description": "Review bids and choose the best freelancer for your project"
+      },
+      "step3": {
+        "title": "Pay when work is done",
+        "description": "Secure payment and reliable work completion"
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "subtitle": "Join thousands of clients and freelancers today",
+      "button": "Sign Up Now"
+    }
+  }
+}

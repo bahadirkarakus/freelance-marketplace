@@ -1,0 +1,307 @@
+{
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "success": "Başarılı",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "clear": "Temizle",
+    "submit": "Gönder",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki",
+    "logout": "Çıkış Yap"
+  },
+  "nav": {
+    "home": "Anasayfa",
+    "projects": "Projeler",
+    "freelancers": "Freelancerlar",
+    "dashboard": "Dashboard",
+    "profile": "Profil",
+    "messages": "Mesajlar",
+    "myBids": "Tekliflerim",
+    "login": "Giriş",
+    "register": "Kayıt Ol"
+  },
+  "auth": {
+    "loginTitle": "Giriş Yap",
+    "registerTitle": "Kayıt Ol",
+    "email": "Email",
+    "password": "Şifre",
+    "name": "İsim",
+    "userType": "Kullanıcı Tipi",
+    "client": "Müşteri",
+    "freelancer": "Freelancer",
+    "alreadyHaveAccount": "Zaten hesabınız var mı?",
+    "dontHaveAccount": "Hesabınız yok mu?",
+    "loginHere": "Giriş yapın",
+    "registerHere": "Kayıt olun",
+    "loginSuccess": "Giriş başarılı!",
+    "registerSuccess": "Kayıt başarılı!"
+  },
+  "dashboard": {
+    "welcome": "Hoş Geldiniz",
+    "clientDashboard": "Müşteri Paneli",
+    "freelancerDashboard": "Freelancer Paneli",
+    "statistics": "İstatistikler",
+    "totalProjects": "Toplam Projeler",
+    "activeProjects": "Aktif Projeler",
+    "completedProjects": "Tamamlanan Projeler",
+    "totalBids": "Toplam Teklifler",
+    "activeBids": "Aktif Teklifler",
+    "acceptedBids": "Kabul Edilen Teklifler",
+    "totalEarnings": "Toplam Kazanç",
+    "averageRating": "Ortalama Puan",
+    "projectsDistribution": "Proje Dağılımı",
+    "open": "Açık",
+    "inProgress": "Devam Ediyor",
+    "completed": "Tamamlandı",
+    "projectsOverTime": "Zaman İçinde Projeler",
+    "bidsOverTime": "Zaman İçinde Teklifler",
+    "earningsByCategory": "Kategoriye Göre Kazançlar",
+    "noData": "Henüz veri yok"
+  },
+  "projects": {
+    "title": "Projeler",
+    "browseProjects": "Projelere Göz At",
+    "addProject": "Yeni Proje Ekle",
+    "projectTitle": "Proje Başlığı",
+    "description": "Açıklama",
+    "category": "Kategori",
+    "budget": "Bütçe",
+    "deadline": "Son Tarih",
+    "status": "Durum",
+    "postedBy": "Yayınlayan",
+    "bids": "Teklif",
+    "viewDetails": "Detayları Gör",
+    "placeBid": "Teklif Ver",
+    "noBids": "Henüz teklif yok",
+    "allCategories": "Tüm Kategoriler",
+    "allStatuses": "Tüm Durumlar",
+    "minBudget": "Min Bütçe",
+    "maxBudget": "Max Bütçe",
+    "sortBy": "Sırala",
+    "newest": "En Yeni",
+    "budgetLowToHigh": "Bütçe: Düşük - Yüksek",
+    "budgetHighToLow": "Bütçe: Yüksek - Düşük",
+    "activeFilters": "Aktif Filtreler",
+    "clearFilters": "Filtreleri Temizle",
+    "noProjects": "Proje bulunamadı",
+    "loadMore": "Daha Fazla Yükle"
+  },
+  "freelancers": {
+    "title": "Freelancerlar",
+    "browseFreelancers": "Freelancerlara Göz At",
+    "specializing": "Uzmanlaşmış freelancerlar:",
+    "hourlyRate": "Saatlik Ücret",
+    "rating": "Puan",
+    "skills": "Yetenekler",
+    "viewProfile": "Profili Gör",
+    "minRate": "Min Ücret",
+    "maxRate": "Max Ücret",
+    "minRating": "Min Puan",
+    "allRatings": "Tüm Puanlar",
+    "rateAsc": "Ücret: Düşük - Yüksek",
+    "rateDesc": "Ücret: Yüksek - Düşük",
+    "ratingDesc": "Puan: Yüksek - Düşük",
+    "noFreelancers": "Freelancer bulunamadı"
+  },
+  "profile": {
+    "title": "Profil",
+    "editProfile": "Profili Düzenle",
+    "updateProfile": "Profili Güncelle",
+    "name": "İsim",
+    "email": "Email",
+    "bio": "Hakkında",
+    "skills": "Yetenekler",
+    "hourlyRate": "Saatlik Ücret",
+    "profileUpdated": "Profil güncellendi!",
+    "myProjects": "Projelerim",
+    "myBids": "Tekliflerim",
+    "reviews": "Değerlendirmeler",
+    "noReviews": "Henüz değerlendirme yok"
+  },
+  "bids": {
+    "title": "Tekliflerim",
+    "amount": "Tutar",
+    "deliveryTime": "Teslim Süresi",
+    "days": "gün",
+    "proposal": "Teklif",
+    "status": "Durum",
+    "pending": "Beklemede",
+    "accepted": "Kabul Edildi",
+    "rejected": "Reddedildi",
+    "project": "Proje",
+    "noBids": "Henüz teklif vermediniz"
+  },
+  "messages": {
+    "title": "Mesajlar",
+    "typeMessage": "Mesaj yazın...",
+    "send": "Gönder",
+    "noMessages": "Henüz mesaj yok",
+    "startConversation": "Sohbet başlatın"
+  },
+  "categories": {
+    "web_development": "Web Geliştirme",
+    "mobile_development": "Mobil Geliştirme",
+    "design": "Tasarım",
+    "writing": "Yazarlık",
+    "marketing": "Pazarlama",
+    "data_science": "Veri Bilimi",
+    "other": "Diğer",
+    "detail": {
+      "aiServices": {
+        "title": "AI Hizmetleri",
+        "subtitle": "Yapay zeka ile işinizi dönüştürün"
+      },
+      "development": {
+        "title": "Geliştirme & IT",
+        "subtitle": "Profesyonel yazılım çözümleri"
+      },
+      "design": {
+        "title": "Tasarım & Yaratıcılık",
+        "subtitle": "Markanızı hayata geçirin"
+      },
+      "marketing": {
+        "title": "Satış & Pazarlama",
+        "subtitle": "İşinizi büyütün"
+      },
+      "writing": {
+        "title": "Yazarlık & Çeviri",
+        "subtitle": "Profesyonel içerik hizmetleri"
+      },
+      "admin": {
+        "title": "Yönetim & Destek",
+        "subtitle": "İşlerinizi kolaylaştırın"
+      },
+      "howItWorks": "Nasıl Çalışır?",
+      "popular": "En Popüler Hizmetler",
+      "explore": "Keşfet",
+      "cta": {
+        "title": "Başlamaya hazır mısınız?",
+        "subtitle": "Binlerce yetenekli profesyonele erişin",
+        "browseProjects": "Projelere Göz At",
+        "getStarted": "Hemen Başla"
+      }
+    }
+  },
+  "reviews": {
+    "title": "Değerlendirmeler",
+    "writeReview": "Değerlendirme Yaz",
+    "yourRating": "Puanınız",
+    "yourComment": "Yorumunuz",
+    "selectRating": "Lütfen bir puan seçin",
+    "writeComment": "Lütfen bir yorum yazın",
+    "commentPlaceholder": "Deneyiminizi paylaşın...",
+    "characters": "karakter",
+    "submitReview": "Değerlendirmeyi Gönder",
+    "reviewAdded": "Değerlendirme eklendi!",
+    "overallRating": "Genel Puan",
+    "reviews": "değerlendirme",
+    "allReviews": "Tüm Değerlendirmeler",
+    "noReviews": "Henüz değerlendirme yok",
+    "project": "Proje"
+  },
+  "home": {
+    "hero": {
+      "title": "Mükemmel Freelance Yetenekleri Bulun",
+      "subtitle": "Yetenekli profesyonellerle bağlantı kurun veya bir sonraki projenizi bulun",
+      "browseProjects": "Projelere Göz At",
+      "findFreelancers": "Freelancer Bul"
+    },
+    "whyChoose": {
+      "title": "Freelancerlarla her şeyi gerçekleştirin",
+      "talent": {
+        "title": "700+ kategoride yeteneklere erişin",
+        "description": "En iyi yeteneklere erişim"
+      },
+      "matching": {
+        "title": "Basit, kullanımı kolay eşleştirme",
+        "description": "Kolay ve hızlı eşleşme deneyimi"
+      },
+      "quality": {
+        "title": "Kaliteli iş, hızlı ve bütçe dahilinde",
+        "description": "Bütçeniz dahilinde hızlı sonuçlar"
+      },
+      "payment": {
+        "title": "Sadece memnun kaldığınızda ödeyin",
+        "description": "Güvenli ödeme sistemi"
+      },
+      "joinButton": "Şimdi Katıl"
+    },
+    "categories": {
+      "title": "Milyonlarca uzmanı keşfedin",
+      "subtitle": "İhtiyacınız olan her hizmet için en iyi freelancerları bulun",
+      "aiServices": "AI Hizmetleri",
+      "development": "Geliştirme & IT",
+      "design": "Tasarım & Yaratıcılık",
+      "marketing": "Satış & Pazarlama",
+      "writing": "Yazarlık & Çeviri",
+      "admin": "Yönetim & Destek",
+      "finance": "Finans & Muhasebe",
+      "legal": "Hukuki",
+      "hr": "İK & Eğitim",
+      "engineering": "Mühendislik & Mimarlık"
+    },
+    "features": {
+      "title": "Neden Bizi Seçmelisiniz?",
+      "quality": {
+        "title": "Kaliteli Yetenek",
+        "description": "Doğrulanmış ve yetenekli freelancerlara erişim"
+      },
+      "diverse": {
+        "title": "Çeşitli Projeler",
+        "description": "Uzmanlığınıza uygun projeler bulun"
+      },
+      "fast": {
+        "title": "Hızlı & Kolay",
+        "description": "Hızlı proje yayınlama ve teklif verme süreci"
+      }
+    },
+    "guides": {
+      "title": "Büyümenize yardımcı olacak rehberler",
+      "seeMore": "Daha fazla rehber gör",
+      "freelancer": {
+        "icon": "💼",
+        "title": "Yan iş başlat",
+        "description": "Yeteneklerinizi kullanarak ek gelir elde edin"
+      },
+      "client": {
+        "icon": "🛒",
+        "title": "İş fikirleri keşfet",
+        "description": "Projeleriniz için en iyi freelancerları bulun"
+      },
+      "remote": {
+        "icon": "🏢",
+        "title": "Uzaktan çalışmaya başla",
+        "description": "Evden çalışarak online iş yapın"
+      }
+    },
+    "howItWorks": {
+      "title": "Nasıl Çalışır?",
+      "forHiring": "İşe almak için",
+      "forFindingWork": "İş bulmak için",
+      "step1": {
+        "title": "Projelere göz atın veya proje yayınlayın",
+        "description": "Mükemmel freelancer bulun veya projenizi yayınlayarak başlayın"
+      },
+      "step2": {
+        "title": "Teklifler alın ve işe alım yapın",
+        "description": "Teklifleri inceleyin ve projeniz için en iyisini seçin"
+      },
+      "step3": {
+        "title": "İş tamamlandığında ödeyin",
+        "description": "Güvenli ödeme ve güvenilir iş tamamlanması"
+      }
+    },
+    "cta": {
+      "title": "Başlamaya Hazır Mısınız?",
+      "subtitle": "Bugün binlerce müşteri ve freelancera katılın",
+      "button": "Hemen Kaydol"
+    }
+  }
+}
