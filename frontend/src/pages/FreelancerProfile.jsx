@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import api from '../utils/api';
-import { getProfilePictureUrl } from '../utils/helpers';
+import { getProfilePictureUrl, getFileUrl } from '../utils/helpers';
 import { AuthContext } from '../context/AuthContext';
 import ReviewList from '../components/ReviewList';
 import ReviewForm from '../components/ReviewForm';
@@ -191,7 +191,7 @@ const FreelancerProfile = () => {
                 <div key={item.id} className="group relative rounded-xl overflow-hidden aspect-video bg-gray-100 dark:bg-gray-700">
                   {item.image_url ? (
                     <img
-                      src={item.image_url.startsWith('http') ? item.image_url : `http://localhost:4000${item.image_url}`}
+                      src={getFileUrl(item.image_url)}
                       alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />

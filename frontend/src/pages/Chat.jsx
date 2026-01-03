@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { io } from 'socket.io-client';
 import toast from 'react-hot-toast';
 import api from '../utils/api';
-import { getProfilePictureUrl } from '../utils/helpers';
+import { getProfilePictureUrl, API_URL } from '../utils/helpers';
 import { AuthContext } from '../context/AuthContext';
 
 const Chat = () => {
@@ -20,7 +20,7 @@ const Chat = () => {
     if (!user) return;
 
     // Connect to socket
-    socketRef.current = io('http://localhost:4000');
+    socketRef.current = io(API_URL);
     socketRef.current.emit('user_online', user.id);
 
     // Listen for new messages

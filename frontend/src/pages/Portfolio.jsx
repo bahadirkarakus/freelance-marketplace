@@ -4,6 +4,7 @@ import api from '../utils/api';
 import { useAuth } from '../hooks/useAuth';
 import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
+import { getFileUrl, getProfilePictureUrl } from '../utils/helpers';
 
 const Portfolio = () => {
   const { userId } = useParams();
@@ -150,7 +151,7 @@ const Portfolio = () => {
             <div className="flex items-center gap-4">
               {ownerInfo?.profile_picture ? (
                 <img
-                  src={ownerInfo.profile_picture.startsWith('http') ? ownerInfo.profile_picture : `http://localhost:4000${ownerInfo.profile_picture}`}
+                  src={getProfilePictureUrl(ownerInfo.profile_picture)}
                   alt={ownerInfo.name}
                   className="w-16 h-16 rounded-full object-cover"
                 />
@@ -212,7 +213,7 @@ const Portfolio = () => {
                 <div className="relative aspect-video bg-gray-100 dark:bg-gray-700 overflow-hidden">
                   {item.image_url ? (
                     <img
-                      src={item.image_url.startsWith('http') ? item.image_url : `http://localhost:4000${item.image_url}`}
+                      src={getFileUrl(item.image_url)}
                       alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -347,7 +348,7 @@ const Portfolio = () => {
                   <div className="flex items-center gap-4">
                     {formData.image_url && (
                       <img
-                        src={formData.image_url.startsWith('http') ? formData.image_url : `http://localhost:4000${formData.image_url}`}
+                        src={getFileUrl(formData.image_url)}
                         alt="Preview"
                         className="w-20 h-20 object-cover rounded-lg"
                       />

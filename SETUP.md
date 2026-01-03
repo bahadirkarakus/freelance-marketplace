@@ -5,6 +5,22 @@
 - **Node.js** (v14 or higher) - [nodejs.org](https://nodejs.org)
 - **npm** (comes with Node.js)
 
+## ⚠️ Important: Environment Setup
+
+### Backend Environment
+```bash
+cd backend
+cp .env.example .env
+# Edit .env file with your credentials
+```
+
+### Frontend Environment
+```bash
+cd frontend
+cp .env.example .env
+# Edit .env file - set VITE_API_URL to your backend URL
+```
+
 ## 🔧 Installation Steps
 
 ### 1️⃣ Backend Setup
@@ -15,6 +31,10 @@ cd backend
 
 # Install dependencies
 npm install
+
+# Copy environment file (IMPORTANT!)
+cp .env.example .env
+# Edit .env file with your database credentials
 
 # Start the server
 node server.js
@@ -32,6 +52,10 @@ cd frontend
 
 # Install dependencies
 npm install
+
+# Copy environment file (IMPORTANT!)
+cp .env.example .env
+# Edit .env file if your backend is not on localhost:4000
 
 # Start the application
 npm start
