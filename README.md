@@ -3,7 +3,7 @@
 A modern, full-stack freelance marketplace platform where clients can post projects and freelancers can bid on them. Built with React, Node.js, and modern web technologies.
 
 ![Freelance Marketplace](https://img.shields.io/badge/Status-Active-green)
-![React](https://img.shields.io/badge/React-18.x-blue)
+![React](https://img.shields.io/badge/React-19.x-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-Latest-brightgreen)
 ![SQLite](https://img.shields.io/badge/Database-SQLite-blue)
 
@@ -33,7 +33,7 @@ A modern, full-stack freelance marketplace platform where clients can post proje
 ## 🛠 Tech Stack
 
 ### Frontend
-![React](https://img.shields.io/badge/REACT-18.0-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![React](https://img.shields.io/badge/REACT-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JAVASCRIPT-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Vite](https://img.shields.io/badge/VITE-5.4.2-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/TAILWIND-3.4.1-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -57,7 +57,7 @@ A modern, full-stack freelance marketplace platform where clients can post proje
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/freelance-marketplace.git
+   git clone https://github.com/bahadirkarakus/freelance-marketplace.git
    cd freelance-marketplace
    ```
 
@@ -175,27 +175,6 @@ freelance-marketplace/
 │   │   └── utils/         # Frontend utilities
 └── README.md
 ```
-
-## 🚀 Deployment Options
-
-This project can be deployed to various platforms:
-
-### Frontend Deployment Options
-- **Vercel** (Recommended for React/Vite)
-- **Netlify**
-- **GitHub Pages**
-- Build with `npm run build` and deploy the `dist` folder
-
-### Backend Deployment Options
-- **Railway** (Easy Node.js deployment)
-- **Heroku**
-- **DigitalOcean**
-- **AWS** or **Azure**
-
-### Important Notes
-- Remember to set environment variables on your hosting platform
-- For production, consider using PostgreSQL instead of SQLite
-- Update frontend API endpoints to point to your deployed backend
 
 ## 🤝 Contributing
 
