@@ -44,11 +44,6 @@ A modern, full-stack freelance marketplace platform where clients can post proje
 ![SQLite](https://img.shields.io/badge/SQLITE-3.x-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-9.0.2-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white)
 
-### Deployment
-![Vercel](https://img.shields.io/badge/VERCEL-FRONTEND-000000?style=for-the-badge&logo=vercel&logoColor=white)
-![Railway](https://img.shields.io/badge/RAILWAY-BACKEND-0B0D0E?style=for-the-badge&logo=railway&logoColor=white)
-![Netlify](https://img.shields.io/badge/NETLIFY-ALTERNATIVE-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
-
 ### **Complete Stack**
 **Modern Full-Stack Freelance Marketplace Platform**
 
@@ -181,17 +176,26 @@ freelance-marketplace/
 └── README.md
 ```
 
-## 🚀 Deployment
+## 🚀 Deployment Options
 
-### Backend Deployment
-- Deploy to services like Heroku, Railway, or DigitalOcean
-- Set up environment variables
-- Configure database (PostgreSQL for production)
+This project can be deployed to various platforms:
 
-### Frontend Deployment
-- Build with `npm run build`
-- Deploy to Netlify, Vercel, or similar platforms
-- Update API endpoints for production
+### Frontend Deployment Options
+- **Vercel** (Recommended for React/Vite)
+- **Netlify**
+- **GitHub Pages**
+- Build with `npm run build` and deploy the `dist` folder
+
+### Backend Deployment Options
+- **Railway** (Easy Node.js deployment)
+- **Heroku**
+- **DigitalOcean**
+- **AWS** or **Azure**
+
+### Important Notes
+- Remember to set environment variables on your hosting platform
+- For production, consider using PostgreSQL instead of SQLite
+- Update frontend API endpoints to point to your deployed backend
 
 ## 🤝 Contributing
 
