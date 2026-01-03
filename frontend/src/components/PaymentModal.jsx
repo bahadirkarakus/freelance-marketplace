@@ -8,8 +8,9 @@ import api from '../utils/api';
  * - PENDING → Processing → SUCCESS/FAILED
  * - Security checks on backend
  * - Real-time status updates
+ * - Supports both direct payment and escrow release
  */
-const PaymentModal = ({ isOpen, onClose, project, bid, onPaymentSuccess }) => {
+const PaymentModal = ({ isOpen, onClose, project, bid, onPaymentSuccess, isEscrowRelease = false }) => {
   const [loading, setLoading] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState(null);
   const [balance, setBalance] = useState(0);
@@ -50,12 +51,18 @@ const PaymentModal = ({ isOpen, onClose, project, bid, onPaymentSuccess }) => {
       // Stage 2: Processing
       setProcessingStage('Processing payment...');
       
-      // Call new backend endpoint
-      const response = await api.post('/payments/pay', {
-        project_id: project.id,
-        bid_id: bid.id,
-        amount: bid.amount
-      });
+      let response;
+      if (isEscrowRelease) {
+        // Escrow release - approve completion and release funds
+        response = await api.post(`/projects/${project.id}/approve-completion`);
+      } else {
+        // Direct payment
+        response = await api.post('/payments/pay', {
+          project_id: project.id,
+          bid_id: bid.id,
+          amount: bid.amount
+        });
+      }
 
       // Stage 3: Finalizing
       setProcessingStage('Finalizing transaction...');
@@ -63,9 +70,9 @@ const PaymentModal = ({ isOpen, onClose, project, bid, onPaymentSuccess }) => {
 
       // Success
       setPaymentStatus('SUCCESS');
-      setPaymentResult(response.data.payment);
+      setPaymentResult(response.data.payment || { transaction_id: 'ESCROW_RELEASE_' + Date.now() });
       setBalance(prev => prev - bid.amount);
-      toast.success('Payment completed successfully! 🎉');
+      toast.success(isEscrowRelease ? 'Work approved! Payment released! 🎉' : 'Payment completed successfully! 🎉');
       
       if (onPaymentSuccess) onPaymentSuccess();
     } catch (error) {
@@ -93,9 +100,11 @@ const PaymentModal = ({ isOpen, onClose, project, bid, onPaymentSuccess }) => {
         {/* Header */}
         <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 p-6">
           <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-            💳 Secure Payment
+            💳 {isEscrowRelease ? 'Release Payment' : 'Secure Payment'}
           </h2>
-          <p className="text-white/90 mt-1 text-sm">Pay from your wallet balance</p>
+          <p className="text-white/90 mt-1 text-sm">
+            {isEscrowRelease ? 'Approve work and release funds to freelancer' : 'Pay from your wallet balance'}
+          </p>
         </div>
 
         {/* Content */}

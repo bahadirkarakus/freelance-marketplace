@@ -45,6 +45,8 @@ const NotificationBell = () => {
       case 'payment': return '💳';
       case 'review': return '⭐';
       case 'project': return '📁';
+      case 'completion': return '✅';
+      case 'dispute': return '⚠️';
       default: return '🔔';
     }
   };
@@ -56,6 +58,8 @@ const NotificationBell = () => {
       case 'payment': return '#f093fb';
       case 'review': return '#fa709a';
       case 'project': return '#fee140';
+      case 'completion': return '#38ef7d';
+      case 'dispute': return '#eb3349';
       default: return '#4a5568';
     }
   };
@@ -68,11 +72,15 @@ const NotificationBell = () => {
       case 'message':
         return related_id ? `/chat/${related_id}` : '/messages';
       case 'payment':
-        return '/dashboard';
+        return related_id ? `/projects/${related_id}` : '/dashboard';
       case 'review':
         return related_id ? `/freelancers/${related_id}` : '/profile';
       case 'project':
         return related_id ? `/projects/${related_id}` : '/projects';
+      case 'completion':
+        return related_id ? `/projects/${related_id}` : '/dashboard';
+      case 'dispute':
+        return related_id ? `/projects/${related_id}` : '/dashboard';
       default:
         return '/dashboard';
     }

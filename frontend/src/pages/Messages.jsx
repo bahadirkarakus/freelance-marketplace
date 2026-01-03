@@ -18,7 +18,7 @@ const Messages = () => {
   const fetchConversations = async () => {
     try {
       console.log('Fetching conversations...');
-      const response = await api.get('/conversations');
+      const response = await api.get('/messages/conversations');
       console.log('Conversations response:', response.data);
       setConversations(response.data || []);
     } catch (error) {

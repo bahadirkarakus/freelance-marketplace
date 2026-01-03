@@ -77,9 +77,9 @@ const ProjectDetail = () => {
 
   useEffect(() => {
     fetchProjectDetails();
+    fetchAcceptedBid();
     if (user && user.user_type === 'client') {
       fetchPayments();
-      fetchAcceptedBid();
     }
   }, [id, user, fetchProjectDetails, fetchPayments, fetchAcceptedBid]);
 
@@ -278,7 +278,7 @@ const ProjectDetail = () => {
             {isOwner && project.freelancer_approved && !project.client_approved && (
               <div className="flex gap-4 flex-wrap">
                 <button
-                  onClick={handleApproveCompletion}
+                  onClick={() => setShowPaymentModal(true)}
                   disabled={approvingCompletion}
                   className="px-8 py-4 rounded-lg font-bold text-white text-lg transition-all hover:opacity-90 disabled:opacity-50"
                   style={{ background: 'linear-gradient(135deg, #11db8d 0%, #23b967 100%)' }}
@@ -443,6 +443,7 @@ const ProjectDetail = () => {
           project={project}
           bid={acceptedBid}
           onPaymentSuccess={handlePaymentSuccess}
+          isEscrowRelease={project.freelancer_approved && !project.client_approved}
         />
       )}
     </div>

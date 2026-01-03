@@ -107,11 +107,21 @@ router.put("/:id", authMiddleware, (req, res) => {
       
       // If accepted, update project status and assign freelancer
       if (status === 'accepted') {
-        db.get("SELECT project_id, freelancer_id FROM bids WHERE id = ?", [req.params.id], (err, bid) => {
+        db.get("SELECT b.project_id, b.freelancer_id, b.amount, p.client_id FROM bids b JOIN projects p ON b.project_id = p.id WHERE b.id = ?", [req.params.id], (err, bid) => {
           if (!err && bid) {
             db.run(
-              "UPDATE projects SET status = 'in_progress', assigned_freelancer_id = ? WHERE id = ?",
+              "UPDATE projects SET status = 'in_progress', freelancer_id = ? WHERE id = ?",
               [bid.freelancer_id, bid.project_id]
+            );
+            
+            // Create payment record for escrow system
+            db.run(
+              `INSERT INTO payments (project_id, bid_id, client_id, freelancer_id, amount, status, payment_method) 
+               VALUES (?, ?, ?, ?, ?, 'PENDING', 'simulated')`,
+              [bid.project_id, req.params.id, bid.client_id, bid.freelancer_id, bid.amount],
+              (err) => {
+                if (err) console.error('Error creating payment record:', err);
+              }
             );
             
             // Send notification to freelancer

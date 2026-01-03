@@ -166,17 +166,45 @@ router.get("/search", (req, res) => {
   });
 });
 
+// Get bids for a specific project
+router.get("/:id/bids", (req, res) => {
+  db.all(
+    `SELECT b.*, u.name as freelancer_name, u.rating as freelancer_rating, u.skills 
+     FROM bids b 
+     JOIN users u ON b.freelancer_id = u.id 
+     WHERE b.project_id = ? 
+     ORDER BY b.created_at DESC`,
+    [req.params.id],
+    (err, bids) => {
+      if (err) return res.status(500).json({ error: err.message });
+      res.json(bids);
+    }
+  );
+});
+
+// Get payments for a specific project
+router.get("/:id/payments", (req, res) => {
+  db.all(
+    `SELECT * FROM payments WHERE project_id = ? ORDER BY created_at DESC`,
+    [req.params.id],
+    (err, payments) => {
+      if (err) return res.status(500).json({ error: err.message });
+      res.json(payments || []);
+    }
+  );
+});
+
 // Get single project
 router.get("/:id", (req, res) => {
   db.get(
     `SELECT p.*, 
             u.name as client_name, 
             u.email as client_email,
-            f.id as freelancer_id,
+            f.id as assigned_freelancer_id,
             f.name as freelancer_name
      FROM projects p 
      JOIN users u ON p.client_id = u.id 
-     LEFT JOIN users f ON p.assigned_freelancer_id = f.id
+     LEFT JOIN users f ON p.freelancer_id = f.id
      WHERE p.id = ?`,
     [req.params.id],
     (err, project) => {
@@ -245,7 +273,7 @@ router.post("/:id/submit-completion", authMiddleware, (req, res) => {
   const freelancerId = req.user.id;
 
   db.get(
-    "SELECT * FROM projects WHERE id = ? AND assigned_freelancer_id = ?",
+    "SELECT * FROM projects WHERE id = ? AND freelancer_id = ?",
     [projectId, freelancerId],
     (err, project) => {
       if (err) return res.status(500).json({ error: err.message });
@@ -264,7 +292,7 @@ router.post("/:id/submit-completion", authMiddleware, (req, res) => {
           if (err) return res.status(500).json({ error: err.message });
 
           db.run(
-            `UPDATE payments SET status = 'in_escrow', freelancer_submitted_at = CURRENT_TIMESTAMP WHERE project_id = ?`,
+            `UPDATE payments SET status = 'PENDING', freelancer_submitted_at = CURRENT_TIMESTAMP WHERE project_id = ?`,
             [projectId]
           );
 
@@ -321,7 +349,7 @@ router.post("/:id/approve-completion", authMiddleware, (req, res) => {
           if (err) return res.status(500).json({ error: err.message });
           if (!payment) return res.status(400).json({ error: "Payment record not found" });
 
-          const freelancerId = project.assigned_freelancer_id;
+          const freelancerId = project.freelancer_id;
           const amount = payment.amount;
 
           db.serialize(() => {
@@ -352,7 +380,7 @@ router.post("/:id/approve-completion", authMiddleware, (req, res) => {
                         );
 
                         db.run(
-                          `UPDATE payments SET status = 'completed', client_approved_at = CURRENT_TIMESTAMP WHERE project_id = ?`,
+                          `UPDATE payments SET status = 'SUCCESS', client_approved_at = CURRENT_TIMESTAMP WHERE project_id = ?`,
                           [projectId]
                         );
 
@@ -422,7 +450,7 @@ router.post("/:id/reject-completion", authMiddleware, (req, res) => {
           if (err) return res.status(500).json({ error: err.message });
 
           db.run(
-            `UPDATE payments SET status = 'disputed' WHERE project_id = ?`,
+            `UPDATE payments SET status = 'FAILED' WHERE project_id = ?`,
             [projectId]
           );
 
@@ -432,12 +460,12 @@ router.post("/:id/reject-completion", authMiddleware, (req, res) => {
           );
 
           db.get(
-            "SELECT assigned_freelancer_id FROM projects WHERE id = ?",
+            "SELECT freelancer_id FROM projects WHERE id = ?",
             [projectId],
             (err, projData) => {
               if (projData) {
                 createNotification(
-                  projData.assigned_freelancer_id,
+                  projData.freelancer_id,
                   'dispute',
                   `⚠️ Your work was rejected. Reason: "${reason}". Admin will review.`,
                   projectId
@@ -498,7 +526,7 @@ router.post("/:id/resolve-dispute", authMiddleware, adminCheck, (req, res) => {
           if (err) return res.status(500).json({ error: err.message });
 
           const amount = projectData.amount;
-          const freelancerId = projectData.assigned_freelancer_id;
+          const freelancerId = projectData.freelancer_id;
           const clientId = projectData.client_id;
 
           db.serialize(() => {
@@ -512,12 +540,12 @@ router.post("/:id/resolve-dispute", authMiddleware, adminCheck, (req, res) => {
                 [amount, freelancerId]
               );
               db.run(
-                `UPDATE payments SET status = 'completed' WHERE project_id = ?`,
+                `UPDATE payments SET status = 'SUCCESS' WHERE project_id = ?`,
                 [projectId]
               );
             } else if (resolution === 'refund') {
               db.run(
-                `UPDATE payments SET status = 'refunded' WHERE project_id = ?`,
+                `UPDATE payments SET status = 'FAILED' WHERE project_id = ?`,
                 [projectId]
               );
             }
