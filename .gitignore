@@ -35,3 +35,17 @@ Thumbs.db
 
 # Uploads folder
 /backend/uploads/
+
+# Project reports and documentation (DO NOT COMMIT)
+PROJECT_REPORT.*
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.pdf
+*.synctex.gz
+*.toc
+
+# Temporary files
+*.tmp
+*.temp

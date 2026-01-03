@@ -8,13 +8,15 @@
     "delete": "Sil",
     "edit": "Düzenle",
     "search": "Ara",
-    "filter": "Filtrele",
+    "filter": "Filtreler",
     "clear": "Temizle",
     "submit": "Gönder",
     "back": "Geri",
     "next": "İleri",
     "previous": "Önceki",
-    "logout": "Çıkış Yap"
+    "logout": "Çıkış Yap",
+    "hour": "saat",
+    "hide": "Gizle"
   },
   "nav": {
     "home": "Anasayfa",
@@ -91,7 +93,10 @@
     "activeFilters": "Aktif Filtreler",
     "clearFilters": "Filtreleri Temizle",
     "noProjects": "Proje bulunamadı",
-    "loadMore": "Daha Fazla Yükle"
+    "loadMore": "Daha Fazla Yükle",
+    "statusOpen": "Açık",
+    "statusInProgress": "Devam Ediyor",
+    "statusCompleted": "Tamamlandı"
   },
   "freelancers": {
     "title": "Freelancerlar",
@@ -101,14 +106,23 @@
     "rating": "Puan",
     "skills": "Yetenekler",
     "viewProfile": "Profili Gör",
-    "minRate": "Min Ücret",
-    "maxRate": "Max Ücret",
+    "minRate": "Min Saatlik Ücret",
+    "maxRate": "Max Saatlik Ücret",
     "minRating": "Min Puan",
     "allRatings": "Tüm Puanlar",
-    "rateAsc": "Ücret: Düşük - Yüksek",
-    "rateDesc": "Ücret: Yüksek - Düşük",
-    "ratingDesc": "Puan: Yüksek - Düşük",
-    "noFreelancers": "Freelancer bulunamadı"
+    "rateAsc": "En Düşük Ücret",
+    "rateDesc": "En Yüksek Ücret",
+    "ratingDesc": "En Yüksek Puan",
+    "noFreelancers": "Freelancer bulunamadı",
+    "experts": "Uzmanları",
+    "freelancersFound": "freelancer bulundu",
+    "verifiedProfiles": "Doğrulanmış Profiller",
+    "noFreelancersFound": "Freelancer bulunamadı",
+    "tryChangingFilters": "Filtreleri değiştirmeyi deneyin",
+    "priceNotSpecified": "Fiyat belirtilmedi",
+    "searchPlaceholder": "İsim veya yeteneklere göre ara...",
+    "mostReviewed": "En Çok Değerlendirilen",
+    "stars": "yıldız"
   },
   "profile": {
     "title": "Profil",
@@ -302,6 +316,108 @@
       "title": "Başlamaya Hazır Mısınız?",
       "subtitle": "Bugün binlerce müşteri ve freelancera katılın",
       "button": "Hemen Kaydol"
+    }
+  },
+  "login": {
+    "welcomeBack": "Tekrar hoş geldin!",
+    "heroText": "Binlerce freelancer ve müşteri ile bağlantı kur, hayalindeki projeleri gerçekleştir.",
+    "activeUsers": "2,000+ aktif kullanıcı",
+    "title": "Hesabına giriş yap",
+    "subtitle": "Devam etmek için bilgilerini gir",
+    "emailLabel": "E-posta adresi",
+    "passwordLabel": "Şifre",
+    "forgotPassword": "Şifremi unuttum",
+    "rememberMe": "Beni hatırla",
+    "loginButton": "Giriş Yap",
+    "loggingIn": "Giriş yapılıyor...",
+    "or": "veya",
+    "noAccount": "Hesabın yok mu?",
+    "signUpFree": "Ücretsiz kaydol"
+  },
+  "homePage": {
+    "hero": {
+      "badge": "🚀 Türkiye'nin En İyi Freelance Platformu",
+      "title": "Yetenekli Profesyonellerle",
+      "titleHighlight": "Hayalini Gerçekleştir",
+      "subtitle": "10,000+ freelancer, 5,000+ proje, tek platform. İster iş bul, ister yetenekleri keşfet.",
+      "searchPlaceholder": "Ne tür bir hizmet arıyorsun?",
+      "primaryButton": "Freelancer Bul",
+      "secondaryButton": "Proje Yayınla",
+      "stats": {
+        "freelancers": "Aktif Freelancer",
+        "projects": "Tamamlanan Proje",
+        "rating": "Müşteri Memnuniyeti"
+      }
+    },
+    "categories": {
+      "title": "Popüler Kategoriler",
+      "subtitle": "Aradığın hizmeti hemen bul",
+      "viewAll": "Tümünü Gör"
+    },
+    "howItWorks": {
+      "title": "Nasıl Çalışır?",
+      "subtitle": "3 basit adımda projenizi tamamlayın",
+      "step1": {
+        "title": "Projenizi Paylaşın",
+        "description": "İhtiyacınızı detaylı şekilde anlatın"
+      },
+      "step2": {
+        "title": "Teklifleri İnceleyin",
+        "description": "En uygun freelancer'ı seçin"
+      },
+      "step3": {
+        "title": "Güvenle Çalışın",
+        "description": "Ödemeniz tamamlanana kadar güvende"
+      }
+    },
+    "featured": {
+      "title": "Öne Çıkan Freelancerlar",
+      "subtitle": "En yüksek puanlı profesyoneller",
+      "viewProfile": "Profili Gör"
+    },
+    "cta": {
+      "title": "Projenize Bugün Başlayın",
+      "subtitle": "Binlerce yetenekli freelancer sizi bekliyor",
+      "button": "Ücretsiz Kaydol"
+    },
+    "testimonials": {
+      "title": "Müşterilerimizden gerçek sonuçlar",
+      "subtitle": "Platformumuzdaki freelancerlarla çalışan kullanıcılarımızın görüşleri",
+      "categories": {
+        "ai": "YAPAY ZEKA HİZMETLERİ",
+        "dev": "GELİŞTİRME & BT",
+        "design": "TASARIM & KREATİF",
+        "marketing": "SATIŞ & PAZARLAMA",
+        "writing": "YAZARLIK & ÇEVİRİ",
+        "admin": "YÖNETİM & DESTEK"
+      },
+      "reviews": {
+        "ai": "Arda, LLM konusunda uzmanlaşmış harika bir AI/ML mühendisi. Uçtan uca çözümler sunuyor. Çalışmaya başladığımızda birkaç konsepti vardı, sonunda çalışan bir çözüm sundu. Onunla tekrar çalışmayı dört gözle bekliyorum.",
+        "dev": "Berkay, ayrılan geliştiricimizden bilgi transferi yaparak ciddi bir son teslim tarihini karşılamamıza yardımcı oldu. Bilgisi ve deneyimi olağanüstü.",
+        "design": "Emre videolarımı düzenlemede harika bir iş çıkardı— hızlı teslimat, detaylara büyük özen ve çalışması çok kolay. Talimatları iyi takip ediyor ve sürekli yüksek kaliteli işler sunuyor.",
+        "marketing": "Caner ve ekibiyle çalışmayı çok sevdik. Çok profesyoneller ve ne yaptıklarını biliyorlar. Çok duyarlılar ve projeyi anlamak için gerçekten zaman ayırıyorlar.",
+        "writing": "Mehmet çok yetenekli ve son derece profesyonel. Görevi anladı, talimatları takip etti ve aynı zamanda esnek ve yaratıcı olabildi. Birlikte çalıştığım nadir metin yazarlarından biri.",
+        "admin": "Ahmet ekibimiz için harika bir değer oldu. Verimsizlikleri tespit etti, süreç disiplini gördü ve ClickUp'ı sürdürülebilir kullanım için ustaca yapılandırdı."
+      }
+    },
+    "faq": {
+      "title": "Sıkça Sorulan Sorular",
+      "subtitle": "BK Marketplace hakkında bilmeniz gereken her şey",
+      "q1": "BK Marketplace nedir?",
+      "a1": "BK Marketplace, işletmeleri, ajansları ve freelancerları birbirine bağlayan küresel bir iş platformudur. Kaydolmak ve başlamak herkes için ücretsizdir.",
+      "q2": "BK Marketplace nasıl çalışır?",
+      "a2_client": "Müşteriler için: Freelancerları bulun, proje yayınlayın, teklifleri inceleyin ve platformumuzda görüşmeler yapın.",
+      "a2_freelancer": "Freelancerlar için: Projelere göz atın, teklif gönderin, müşterilerle işbirliği yapın ve güvenli bir şekilde ödeme alın.",
+      "q3": "BK Marketplace kimler için?",
+      "a3_business": "İşletmeler için: Her büyüklükteki şirket, esnek ve güvenilir freelance yetenek bulmak için kullanabilir.",
+      "a3_freelancer": "Freelancerlar için: Yeni başlayanlar için freelance kariyere başlamak için harika bir yer. Deneyimli freelancerlar sürekli iş bulmak için kullanıyor.",
+      "q4": "BK Marketplace'in maliyeti nedir?",
+      "a4": "Kaydolmak ve profil oluşturmak ücretsizdir. Fiyatlandırma üyelik planlarına göre değişir, ancak temel erişim hem freelancerlar hem de müşteriler için ücretsizdir.",
+      "q5": "Nasıl ödeme alırım?",
+      "a5": "Müşteri işi onayladığında ödeme alırsınız. Hem freelancerları hem de müşterileri korumak için güvenli ödeme işlemi kullanıyoruz.",
+      "q6": "BK Marketplace'te çalışmak güvenli mi?",
+      "a6": "Evet. Hem freelancerları hem de müşterileri korumak için güvenli ödeme işlemi, doğrulanmış profiller ve derecelendirme sistemleri kullanıyoruz.",
+      "getStarted": "Bugün Başlayın"
     }
   }
 }

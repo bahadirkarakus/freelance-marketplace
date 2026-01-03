@@ -18,9 +18,13 @@ i18n
       }
     },
     lng: savedLanguage,
-    fallbackLng: 'tr',
+    fallbackLng: 'en',
+    debug: false,
     interpolation: {
       escapeValue: false
+    },
+    react: {
+      useSuspense: false
     }
   });
 
