@@ -17,6 +17,7 @@ db.serialize(() => {
       specialties TEXT,
       hourly_rate REAL,
       rating REAL DEFAULT 0,
+      balance REAL DEFAULT 0,
       profile_picture TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
