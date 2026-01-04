@@ -12,10 +12,6 @@ node_modules/
 .env.local
 .env.*.local
 
-# Database
-*.db
-database.db
-
 # IDE
 .vscode/
 .idea/
