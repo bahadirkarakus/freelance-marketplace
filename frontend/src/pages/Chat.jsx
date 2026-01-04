@@ -25,7 +25,7 @@ const Chat = () => {
 
     // Listen for new messages
     socketRef.current.on('receive_message', (message) => {
-      if (message.sender_id === parseInt(userId)) {
+      if (Number(message.sender_id) === parseInt(userId)) {
         setMessages(prev => [...prev, message]);
         scrollToBottom();
       }
@@ -139,7 +139,7 @@ const Chat = () => {
           ) : (
             <div className="space-y-4">
               {messages.map((msg) => {
-                const isOwnMessage = msg.sender_id === user.id;
+                const isOwnMessage = Number(msg.sender_id) === Number(user.id);
                 return (
                   <div
                     key={msg.id}

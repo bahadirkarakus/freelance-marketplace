@@ -60,7 +60,7 @@ router.get("/conversations", authMiddleware, async (req, res) => {
                 // Get unread message count
                 db.get(
                   `SELECT COUNT(*) as count FROM messages 
-                   WHERE sender_id = ? AND receiver_id = ? AND is_read = 0`,
+                   WHERE sender_id = ? AND receiver_id = ? AND read = 0`,
                   [otherUserId, userId],
                   (err, unread) => {
                     resolve({
@@ -164,7 +164,7 @@ router.put("/:userId/read", authMiddleware, (req, res) => {
   const otherUserId = req.params.userId;
 
   db.run(
-    "UPDATE messages SET is_read = 1 WHERE sender_id = ? AND receiver_id = ?",
+    "UPDATE messages SET read = 1 WHERE sender_id = ? AND receiver_id = ?",
     [otherUserId, currentUserId],
     function (err) {
       if (err) return res.status(500).json({ error: err.message });

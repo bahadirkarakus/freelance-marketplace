@@ -28,13 +28,17 @@ class AuthController {
         // Hash password ve encrypt email
         const hashedPassword = await bcrypt.hash(password, 10);
         const encryptedEmail = encrypt(email);
+        
+        // Client'lar $200 başlangıç bakiyesi ile başlar
+        const initialBalance = user_type === 'client' ? 200 : 0;
 
         db.run(
-          `INSERT INTO users (email, password, name, user_type, bio, skills, hourly_rate) 
-           VALUES (?, ?, ?, ?, ?, ?, ?)`,
-          [encryptedEmail, hashedPassword, name, user_type, bio, skills, hourly_rate],
+          `INSERT INTO users (email, password, name, user_type, bio, skills, hourly_rate, balance) 
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+          [encryptedEmail, hashedPassword, name, user_type, bio, skills, hourly_rate, initialBalance],
           function (err) {
             if (err) {
+              console.error('Registration DB error:', err.message);
               return res.status(500).json({ error: err.message });
             }
 

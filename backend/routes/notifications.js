@@ -6,7 +6,8 @@ const authMiddleware = require('../middleware/auth');
 // Get notifications for logged-in user
 router.get('/', authMiddleware, (req, res) => {
   db.all(
-    `SELECT * FROM notifications 
+    `SELECT id, user_id, type, title, message, read as is_read, created_at, related_id 
+     FROM notifications 
      WHERE user_id = ? 
      ORDER BY created_at DESC 
      LIMIT 50`,
@@ -23,7 +24,7 @@ router.put('/:id/read', authMiddleware, (req, res) => {
   const { id } = req.params;
   
   db.run(
-    `UPDATE notifications SET is_read = 1 WHERE id = ? AND user_id = ?`,
+    `UPDATE notifications SET read = 1 WHERE id = ? AND user_id = ?`,
     [id, req.user.id],
     function(err) {
       if (err) return res.status(500).json({ error: err.message });
@@ -38,7 +39,7 @@ router.put('/:id/read', authMiddleware, (req, res) => {
 // Mark all notifications as read
 router.put('/read-all', authMiddleware, (req, res) => {
   db.run(
-    `UPDATE notifications SET is_read = 1 WHERE user_id = ? AND is_read = 0`,
+    `UPDATE notifications SET read = 1 WHERE user_id = ? AND read = 0`,
     [req.user.id],
     function(err) {
       if (err) return res.status(500).json({ error: err.message });

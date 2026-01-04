@@ -5,7 +5,7 @@ import api from '../utils/api';
 import { AuthContext } from '../context/AuthContext';
 
 const CreateProject = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading: authLoading } = useContext(AuthContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: '',
@@ -17,10 +17,20 @@ const CreateProject = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  // Auth yüklenirken bekle
+  if (authLoading) {
+    return (
+      <div className="container mx-auto px-4 py-8 text-center">
+        <p className="text-xl">Loading...</p>
+      </div>
+    );
+  }
+
   if (!user || user.user_type !== 'client') {
     return (
       <div className="container mx-auto px-4 py-8 text-center">
         <p className="text-xl text-red-600">Only clients can post projects</p>
+        <p className="text-gray-500 mt-2">Please login as a client to create projects.</p>
       </div>
     );
   }

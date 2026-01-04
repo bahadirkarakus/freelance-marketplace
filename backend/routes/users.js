@@ -188,7 +188,7 @@ router.post("/:id/upload-picture", authMiddleware, upload.single('profile_pictur
 // Get user's projects
 router.get("/:id/projects", (req, res) => {
   db.all(
-    "SELECT * FROM projects WHERE client_id = ? OR freelancer_id = ? ORDER BY created_at DESC",
+    "SELECT * FROM projects WHERE client_id = ? OR assigned_freelancer_id = ? ORDER BY created_at DESC",
     [req.params.id, req.params.id],
     (err, projects) => {
       if (err) return res.status(500).json({ error: err.message });

@@ -8,7 +8,7 @@ const { createNotification } = require('../utils/helpers');
 
 // Create bid (Protected - Freelancer only)
 router.post("/", authMiddleware, roleCheck(['freelancer']), validateBid, (req, res) => {
-  const { project_id, freelancer_id, amount, delivery_time, proposal } = req.body;
+  const { project_id, freelancer_id, amount, proposal } = req.body;
 
   if (!project_id || !freelancer_id || !amount || !proposal) {
     return res.status(400).json({ error: "Missing required fields" });
@@ -27,9 +27,9 @@ router.post("/", authMiddleware, roleCheck(['freelancer']), validateBid, (req, r
 
       // Create bid
       db.run(
-        `INSERT INTO bids (project_id, freelancer_id, amount, delivery_time, proposal) 
-         VALUES (?, ?, ?, ?, ?)`,
-        [project_id, freelancer_id, amount, delivery_time, proposal],
+        `INSERT INTO bids (project_id, freelancer_id, bid_amount, proposal) 
+         VALUES (?, ?, ?, ?)`,
+        [project_id, freelancer_id, amount, proposal],
         function (err) {
           if (err) return res.status(500).json({ error: err.message });
           
@@ -61,7 +61,7 @@ router.post("/", authMiddleware, roleCheck(['freelancer']), validateBid, (req, r
 // Get bids for a project
 router.get("/project/:id", (req, res) => {
   db.all(
-    `SELECT b.*, u.name as freelancer_name, u.rating as freelancer_rating, u.skills 
+    `SELECT b.*, b.bid_amount as amount, u.name as freelancer_name, u.rating as freelancer_rating, u.skills 
      FROM bids b 
      JOIN users u ON b.freelancer_id = u.id 
      WHERE b.project_id = ? 
@@ -77,7 +77,7 @@ router.get("/project/:id", (req, res) => {
 // Get freelancer's bids
 router.get("/freelancer/:id", (req, res) => {
   db.all(
-    `SELECT b.*, p.title as project_title, p.budget as project_budget 
+    `SELECT b.*, b.bid_amount as amount, p.title as project_title, p.budget as project_budget 
      FROM bids b 
      JOIN projects p ON b.project_id = p.id 
      WHERE b.freelancer_id = ? 
@@ -107,10 +107,10 @@ router.put("/:id", authMiddleware, (req, res) => {
       
       // If accepted, update project status and assign freelancer
       if (status === 'accepted') {
-        db.get("SELECT b.project_id, b.freelancer_id, b.amount, p.client_id FROM bids b JOIN projects p ON b.project_id = p.id WHERE b.id = ?", [req.params.id], (err, bid) => {
+        db.get("SELECT b.project_id, b.freelancer_id, b.bid_amount as amount, p.client_id, p.title FROM bids b JOIN projects p ON b.project_id = p.id WHERE b.id = ?", [req.params.id], (err, bid) => {
           if (!err && bid) {
             db.run(
-              "UPDATE projects SET status = 'in_progress', freelancer_id = ? WHERE id = ?",
+              "UPDATE projects SET status = 'in_progress', assigned_freelancer_id = ? WHERE id = ?",
               [bid.freelancer_id, bid.project_id]
             );
             
@@ -125,16 +125,12 @@ router.put("/:id", authMiddleware, (req, res) => {
             );
             
             // Send notification to freelancer
-            db.get("SELECT title FROM projects WHERE id = ?", [bid.project_id], (err, project) => {
-              if (!err && project) {
-                createNotification(
-                  bid.freelancer_id,
-                  'bid',
-                  `✅ Your bid for "${project.title}" has been accepted!`,
-                  bid.project_id
-                );
-              }
-            });
+            createNotification(
+              bid.freelancer_id,
+              'bid',
+              `✅ Your bid for "${bid.title}" has been accepted!`,
+              bid.project_id
+            );
           }
         });
       }
@@ -142,7 +138,7 @@ router.put("/:id", authMiddleware, (req, res) => {
       // If rejected, notify freelancer
       if (status === 'rejected') {
         db.get(
-          `SELECT b.freelancer_id, p.title 
+          `SELECT b.freelancer_id, b.project_id, p.title 
            FROM bids b 
            JOIN projects p ON b.project_id = p.id 
            WHERE b.id = ?`,
