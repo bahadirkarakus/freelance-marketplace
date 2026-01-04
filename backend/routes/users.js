@@ -6,6 +6,19 @@ const roleCheck = require('../middleware/roleCheck');
 const upload = require('../middleware/upload');
 const { adminCheck } = require('../utils/helpers');
 
+// Get all freelancers (root endpoint)
+router.get("/", (req, res) => {
+  db.all(
+    `SELECT id, name, bio, skills, hourly_rate, rating, profile_picture 
+     FROM users WHERE user_type = 'freelancer' ORDER BY rating DESC`,
+    [],
+    (err, freelancers) => {
+      if (err) return res.status(500).json({ error: err.message });
+      res.json(freelancers);
+    }
+  );
+});
+
 // Search freelancers with filters
 router.get("/search", (req, res) => {
   const { 
