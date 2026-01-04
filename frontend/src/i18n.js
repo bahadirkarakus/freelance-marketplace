@@ -3,8 +3,8 @@ import { initReactI18next } from 'react-i18next';
 import tr from './locales/tr.json';
 import en from './locales/en.json';
 
-// Tarayıcıdan kayıtlı dil tercihini al, yoksa Türkçe varsayılan
-const savedLanguage = localStorage.getItem('language') || 'tr';
+// Tarayıcıdan kayıtlı dil tercihini al, yoksa İngilizce varsayılan
+const savedLanguage = localStorage.getItem('language') || 'en';
 
 i18n
   .use(initReactI18next)

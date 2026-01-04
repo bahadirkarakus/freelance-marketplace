@@ -29,18 +29,18 @@ cp .env.example .env
 # Navigate to backend folder
 cd backend
 
-# Install dependencies
+# Install dependencies (demo data otomatik oluşturulacak)
 npm install
 
-# Copy environment file (IMPORTANT!)
+# Copy environment file
 cp .env.example .env
-# Edit .env file with your database credentials
 
 # Start the server
 node server.js
 ```
 
-Backend runs on http://localhost:4000
+✅ Backend runs on http://localhost:4000
+✅ Demo data (projects, users) otomatik oluşturuldu!
 
 ### 2️⃣ Frontend Setup
 
@@ -53,15 +53,16 @@ cd frontend
 # Install dependencies
 npm install
 
-# Copy environment file (IMPORTANT!)
+# Copy environment file
 cp .env.example .env
-# Edit .env file if your backend is not on localhost:4000
+# Dosya otomatik doğru ayarlarla oluşturulacak
 
 # Start the application
 npm start
 ```
 
-Frontend runs on http://localhost:3002 and will open in your browser automatically.
+✅ Frontend runs on http://localhost:3002
+✅ Browser otomatik açılacak
 
 ## 🎯 Test Accounts
 
